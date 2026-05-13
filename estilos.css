@@ -1,62 +1,49 @@
-/* Reset básico */
+/* Reset */
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 }
-/* Contenedor principal */
-.contenedor{
-display:grid;
-grid-template-columns: 1fr 3fr 1fr;
-grid-template-rows: auto auto 1fr auto;
-grid-template-areas:
-"header header header"
-"nav nav nav"
-"aside main main"
-"footer footer footer";
-gap:10px;
-min-height:100vh;
-padding:10px;
+/* General */
+body{
+font-family:Arial, sans-serif;
 }
-/* Áreas */
+/* Header */
 header{
-grid-area:header;
 background:#333;
 color:white;
-padding:20px;
 text-align:center;
+padding:20px;
 }
-nav{
-grid-area:nav;
-background:#555;
-}
-nav ul{
+/* Menú */
+.menu{
 display:flex;
 justify-content:space-around;
-list-style:none;
-padding:10px;
+background:#555;
 }
-nav li{
+.menu div{
+padding:15px;
 color:white;
 }
-main{
-grid-area:main;
+/* Contenedor principal (Grid) */
+.contenedor{
+display:grid;
+grid-template-columns: 3fr 1fr;
+gap:20px;
+padding:20px;
+
+}
+/* Contenido */
+.contenido{
 background:#f4f4f4;
 padding:20px;
 }
-aside{
-grid-area:aside;
+/* Sidebar */
+.sidebar{
 background:#ddd;
 padding:20px;
 }
-footer{
-grid-area:footer;
-background:#333;
-color:white;
-text-align:center;
-padding:10px;
-}
-/* Tarjetas internas (usa Flexbox) */
+/* Tarjetas (Flexbox) */
 .tarjetas{
 display:flex;
 gap:10px;
@@ -69,23 +56,33 @@ border:1px solid #ccc;
 flex:1;
 text-align:center;
 }
-/* RESPONSIVO */
-@media (max-width:768px){
-.contenedor{
-grid-template-columns:1fr;
-grid-template-areas:
-"header"
-"nav"
-
-"main"
-"aside"
-"footer";
+/* Footer */
+footer{
+background:#333;
+color:white;
+text-align:center;
+padding:10px;
 }
-nav ul{
+/* ===================== */
+/* DISEÑO RESPONSIVO */
+/* ===================== */
+@media (max-width:768px){
+/* Menú vertical */
+.menu{
 flex-direction:column;
 align-items:center;
 }
+/* Grid a una columna */
+.contenedor{
+grid-template-columns:1fr;
+
+}
+/* Tarjetas en columna */
 .tarjetas{
 flex-direction:column;
+}
+/* Ajuste de texto */
+header h1{
+font-size:20px;
 }
 }
